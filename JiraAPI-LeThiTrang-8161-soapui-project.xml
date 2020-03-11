@@ -1,0 +1,3667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cb5b10f7-0d2b-4a91-bce6-e3e0944f8400" activeEnvironment="Default environment" name="JiraAPI_LeThiTrang_8161" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="3.1.0 2020-02-04T16:09:20Z" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="064428a0-c2d5-453f-ac8d-9fd9a2bf62e5" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://trangle.atlassian.net/rest/api/3/issue" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="Default">
+        <con:authProfile>administrator</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:resource name="issues" path="/" id="fdcf98a6-b17e-43dc-9518-df83153f18ce">
+      <con:settings/>
+      <con:parameters/>
+      <con:resource name="issues child" path="{issueKey}" id="41b38ca1-4a74-44e3-8225-0b090aa78a58">
+        <con:settings/>
+        <con:parameters/>
+        <con:resource name="issues transition" path="transitions" id="2d955b3d-6247-4967-99db-d4be996bce51">
+          <con:settings/>
+          <con:parameters/>
+          <con:method name="transition" id="10058205-60ef-46d1-ad2b-7a234a4cdea9" method="GET">
+            <con:settings/>
+            <con:parameters>
+              <con:parameter required="true">
+                <con:name>issueKey</con:name>
+                <con:value/>
+                <con:style>TEMPLATE</con:style>
+                <con:default/>
+              </con:parameter>
+            </con:parameters>
+            <con:representation type="RESPONSE">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>200</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Response</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+              <con:status>405</con:status>
+              <con:params/>
+            </con:representation>
+            <con:request name="request get transition" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json">
+              <con:settings>
+                <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              </con:settings>
+              <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+              <con:request/>
+              <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+              <con:credentials>
+                <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+                <con:authType>No Authorization</con:authType>
+              </con:credentials>
+              <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+              <con:parameters/>
+              <con:parameterOrder>
+                <con:entry>issueKey</con:entry>
+              </con:parameterOrder>
+            </con:request>
+          </con:method>
+          <con:method name="do transition" id="10058205-60ef-46d1-ad2b-7a234a4cdea9" method="POST">
+            <con:settings/>
+            <con:parameters>
+              <con:parameter required="true">
+                <con:name>issueKey</con:name>
+                <con:value/>
+                <con:style>TEMPLATE</con:style>
+                <con:default/>
+              </con:parameter>
+            </con:parameters>
+            <con:representation type="RESPONSE">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>200</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Response</con:element>
+            </con:representation>
+            <con:representation type="REQUEST">
+              <con:mediaType>application/json</con:mediaType>
+              <con:params/>
+            </con:representation>
+            <con:representation type="RESPONSE">
+              <con:mediaType xsi:nil="true"/>
+              <con:status>204</con:status>
+              <con:params/>
+              <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>404 400</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Fault</con:element>
+            </con:representation>
+            <con:request name="request do transition" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+              <con:settings>
+                <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              </con:settings>
+              <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+              <con:request>{
+  "update": {
+    "comment": [
+      {
+        "add": {
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Issue ${#[pre_condition]#issueKey} has been fixed",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "transition": {
+    "id": "11"
+  }
+}</con:request>
+              <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+              <con:credentials>
+                <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+                <con:authType>No Authorization</con:authType>
+              </con:credentials>
+              <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+              <con:parameters/>
+              <con:parameterOrder>
+                <con:entry>issueKey</con:entry>
+              </con:parameterOrder>
+            </con:request>
+          </con:method>
+        </con:resource>
+        <con:resource name="issues vote" path="votes" id="2d955b3d-6247-4967-99db-d4be996bce51">
+          <con:settings/>
+          <con:parameters/>
+          <con:method name="add vote" id="10058205-60ef-46d1-ad2b-7a234a4cdea9" method="POST">
+            <con:settings/>
+            <con:parameters>
+              <con:parameter required="true">
+                <con:name>issueKey</con:name>
+                <con:value/>
+                <con:style>TEMPLATE</con:style>
+                <con:default/>
+              </con:parameter>
+            </con:parameters>
+            <con:representation type="RESPONSE">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>200</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Response</con:element>
+            </con:representation>
+            <con:representation type="REQUEST">
+              <con:mediaType>application/json</con:mediaType>
+              <con:params/>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>404</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Fault</con:element>
+            </con:representation>
+            <con:representation type="RESPONSE">
+              <con:mediaType xsi:nil="true"/>
+              <con:status>204</con:status>
+              <con:params/>
+              <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+              <con:status>405</con:status>
+              <con:params/>
+            </con:representation>
+            <con:request name="request add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+              <con:settings>
+                <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              </con:settings>
+              <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+              <con:request/>
+              <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+              <con:credentials>
+                <con:selectedAuthProfile>users</con:selectedAuthProfile>
+                <con:authType>No Authorization</con:authType>
+              </con:credentials>
+              <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+              <con:parameters/>
+              <con:parameterOrder>
+                <con:entry>issueKey</con:entry>
+              </con:parameterOrder>
+            </con:request>
+          </con:method>
+        </con:resource>
+        <con:resource name="issues comment" path="comment" id="2d955b3d-6247-4967-99db-d4be996bce51">
+          <con:settings/>
+          <con:parameters/>
+          <con:resource name="" path="{commentId}" id="6cbf22a1-880a-4840-8239-388939f1b9dc">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="get comment" id="acad7a59-ebd2-4cab-87c9-4f121f904e89" method="GET">
+              <con:settings/>
+              <con:parameters>
+                <con:parameter required="true">
+                  <con:name>commentId</con:name>
+                  <con:value/>
+                  <con:style>TEMPLATE</con:style>
+                  <con:default/>
+                </con:parameter>
+                <con:parameter required="true">
+                  <con:name>issueKey</con:name>
+                  <con:value/>
+                  <con:style>TEMPLATE</con:style>
+                  <con:default/>
+                </con:parameter>
+              </con:parameters>
+              <con:representation type="RESPONSE">
+                <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                <con:status>200</con:status>
+                <con:params/>
+                <con:element xmlns:ns="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029">ns:Response</con:element>
+              </con:representation>
+              <con:representation type="FAULT">
+                <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                <con:status>404</con:status>
+                <con:params/>
+                <con:element xmlns:ns="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029">ns:Fault</con:element>
+              </con:representation>
+              <con:representation type="FAULT">
+                <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+                <con:status>405</con:status>
+                <con:params/>
+              </con:representation>
+              <con:representation type="FAULT">
+                <con:mediaType>application/xml;charset=UTF-8</con:mediaType>
+                <con:status>404</con:status>
+                <con:params/>
+                <con:element>status</con:element>
+              </con:representation>
+              <con:request name="request get comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json">
+                <con:settings>
+                  <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+                <con:request/>
+                <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+                <con:credentials>
+                  <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+                  <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:parameters/>
+                <con:parameterOrder>
+                  <con:entry>commentId</con:entry>
+                  <con:entry>issueKey</con:entry>
+                </con:parameterOrder>
+              </con:request>
+            </con:method>
+            <con:method name="update comment" id="acad7a59-ebd2-4cab-87c9-4f121f904e89" method="PUT">
+              <con:settings/>
+              <con:parameters>
+                <con:parameter required="true">
+                  <con:name>issueKey</con:name>
+                  <con:value/>
+                  <con:style>TEMPLATE</con:style>
+                  <con:default/>
+                </con:parameter>
+                <con:parameter required="true">
+                  <con:name>commentId</con:name>
+                  <con:value/>
+                  <con:style>TEMPLATE</con:style>
+                  <con:default/>
+                </con:parameter>
+              </con:parameters>
+              <con:representation type="RESPONSE">
+                <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                <con:status>200</con:status>
+                <con:params/>
+                <con:element xmlns:ns="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029">ns:Response</con:element>
+              </con:representation>
+              <con:representation type="REQUEST">
+                <con:mediaType>application/json</con:mediaType>
+                <con:params/>
+              </con:representation>
+              <con:representation type="FAULT">
+                <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+                <con:status>405</con:status>
+                <con:params/>
+              </con:representation>
+              <con:representation type="FAULT">
+                <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                <con:status>404 400</con:status>
+                <con:params/>
+                <con:element xmlns:ns="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029">ns:Fault</con:element>
+              </con:representation>
+              <con:request name="request update comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+                <con:settings>
+                  <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+                <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Update comment to ticket ${#Project#comment_id}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+                <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+                <con:credentials>
+                  <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+                  <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:parameters/>
+                <con:parameterOrder>
+                  <con:entry>issueKey</con:entry>
+                  <con:entry>commentId</con:entry>
+                </con:parameterOrder>
+              </con:request>
+            </con:method>
+          </con:resource>
+          <con:method name="get comments" id="10058205-60ef-46d1-ad2b-7a234a4cdea9" method="GET">
+            <con:settings/>
+            <con:parameters/>
+            <con:representation type="RESPONSE">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>200</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Response</con:element>
+            </con:representation>
+            <con:representation type="REQUEST">
+              <con:mediaType>application/json</con:mediaType>
+              <con:params/>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>404 400</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Fault</con:element>
+            </con:representation>
+            <con:representation type="RESPONSE">
+              <con:mediaType xsi:nil="true"/>
+              <con:status>204</con:status>
+              <con:params/>
+              <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/xml;charset=UTF-8</con:mediaType>
+              <con:status>404</con:status>
+              <con:params/>
+              <con:element>status</con:element>
+            </con:representation>
+            <con:request name="request get comments" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+              <con:settings>
+                <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              </con:settings>
+              <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+              <con:request/>
+              <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+              <con:credentials>
+                <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+                <con:authType>No Authorization</con:authType>
+              </con:credentials>
+              <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+              <con:parameters/>
+              <con:parameterOrder/>
+            </con:request>
+          </con:method>
+          <con:method name="add comment" id="10058205-60ef-46d1-ad2b-7a234a4cdea9" method="POST">
+            <con:settings/>
+            <con:parameters>
+              <con:parameter required="true">
+                <con:name>issueKey</con:name>
+                <con:value/>
+                <con:style>TEMPLATE</con:style>
+                <con:default/>
+              </con:parameter>
+            </con:parameters>
+            <con:representation type="RESPONSE">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>200 201</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Response</con:element>
+            </con:representation>
+            <con:representation type="REQUEST">
+              <con:mediaType>application/json</con:mediaType>
+              <con:params/>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+              <con:status>404 400</con:status>
+              <con:params/>
+              <con:element xmlns:tran="https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions">tran:Fault</con:element>
+            </con:representation>
+            <con:representation type="RESPONSE">
+              <con:mediaType xsi:nil="true"/>
+              <con:status>204</con:status>
+              <con:params/>
+              <con:element>data</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>application/xml;charset=UTF-8</con:mediaType>
+              <con:status>404</con:status>
+              <con:params/>
+              <con:element>status</con:element>
+            </con:representation>
+            <con:representation type="FAULT">
+              <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+              <con:status>405</con:status>
+              <con:params/>
+            </con:representation>
+            <con:request name="request add comment" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+              <con:settings>
+                <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+              </con:settings>
+              <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+              <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Add comment to ticket ${#Project#issue_key}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+              <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+              <con:credentials>
+                <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+                <con:authType>No Authorization</con:authType>
+              </con:credentials>
+              <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+              <con:parameters/>
+              <con:parameterOrder>
+                <con:entry>issueKey</con:entry>
+              </con:parameterOrder>
+            </con:request>
+          </con:method>
+        </con:resource>
+        <con:method name="delete an issue" id="09ad9a34-5770-41de-afb8-2d7e7eb7b551" method="DELETE">
+          <con:settings/>
+          <con:parameters>
+            <con:parameter required="true">
+              <con:name>issueKey</con:name>
+              <con:value/>
+              <con:style>TEMPLATE</con:style>
+              <con:default/>
+            </con:parameter>
+          </con:parameters>
+          <con:representation type="REQUEST">
+            <con:mediaType>application/json</con:mediaType>
+            <con:params/>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType xsi:nil="true"/>
+            <con:status>204</con:status>
+            <con:params/>
+            <con:element>data</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>404</con:status>
+            <con:params/>
+            <con:element xmlns:test="https://trangle.atlassian.net/rest/api/3/issue/TEST-19">test:Fault</con:element>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+            <con:status>405</con:status>
+            <con:params/>
+          </con:representation>
+          <con:representation type="FAULT">
+            <con:mediaType>text/html;charset=utf-8</con:mediaType>
+            <con:status>400</con:status>
+            <con:params/>
+            <con:element>html</con:element>
+          </con:representation>
+          <con:request name="request delete issue" id="b49128bb-c0b8-4cfa-bd98-42c41eef6858" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-19</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+        <con:method name="get an issue" id="9aeb9b89-d07f-4d56-9b8b-a42206be0c0b" method="GET">
+          <con:settings/>
+          <con:parameters>
+            <con:parameter required="true">
+              <con:name>issueKey</con:name>
+              <con:value/>
+              <con:style>TEMPLATE</con:style>
+              <con:default/>
+            </con:parameter>
+          </con:parameters>
+          <con:representation type="FAULT">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>404</con:status>
+            <con:params/>
+            <con:element xmlns:test="https://trangle.atlassian.net/rest/api/3/issue/TEST-79">test:Fault</con:element>
+          </con:representation>
+          <con:representation type="RESPONSE">
+            <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+            <con:status>200</con:status>
+            <con:params/>
+            <con:element xmlns:test="https://trangle.atlassian.net/rest/api/3/issue/TEST-79">test:Response</con:element>
+          </con:representation>
+          <con:request name="request get an issue" id="6f63b6f4-ac7c-4c12-a20a-2b4ad821e5e9" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:request>
+        </con:method>
+      </con:resource>
+      <con:method name="create an issue" id="0cdb39cf-f602-4a0b-b523-cbaf280debf6" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html;charset=UTF-8</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:iss="https://trangle.atlassian.net/issue">iss:Fault</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:element xmlns:iss="https://trangle.atlassian.net/issue">iss:Response</con:element>
+        </con:representation>
+        <con:request name="request create an issue" id="ee807d99-f84f-4db1-a7d1-395289a98c47" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+          <con:request>{
+  "update": {},
+  "fields": {
+    "summary": "Main order flow broken 1",
+    "issuetype": {
+      "id": "10001"
+    },
+    "components": [
+      {
+        "id": "10000"
+      }
+    ],
+    "project": {
+      "id": "10000"
+    },
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "text": "Order entry fails when selecting supplier 1.",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}</con:request>
+          <con:originalUri>https://trangle.atlassian.net/issue</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:interface xsi:type="con:RestService" id="713d379f-1865-4e40-86e0-3c13fe8ace5d" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://trangle.atlassian.net/rest/api/3/search" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="Default">
+        <con:authProfile>administrator</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:resource name="search" path="" id="c2ca0ba7-1e04-4928-aae0-97938ac4cfa5">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="get search" id="4f02ad4c-09c7-48b5-935c-0ea3e9b8fbe5" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>jql</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:sear="https://trangle.atlassian.net/rest/api/3/search">sear:Response</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:sear="https://trangle.atlassian.net/rest/api/3/search">sear:Fault</con:element>
+        </con:representation>
+        <con:request name="request get search" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>jql</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+      <con:method name="post search" id="4f02ad4c-09c7-48b5-935c-0ea3e9b8fbe5" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:sear="https://trangle.atlassian.net/rest/api/3/search">sear:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:sear="https://trangle.atlassian.net/rest/api/3/search">sear:Fault</con:element>
+        </con:representation>
+        <con:request name="request post search" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+          <con:request>{
+  "jql": "project = TEST",
+  "maxResults": 15,
+  "fieldsByKeys": false,
+  "fields": [
+    "summary",
+    "status"
+  ]
+}</con:request>
+          <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="0d08be30-623d-45ec-ae64-a121c6de0b65" name="set_variable" authProfile="administrator">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="924d9695-3ef1-4788-8016-54c97e9ee744" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="common variables" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="properties" name="variables" id="a8cffa32-b07c-4c81-b8e9-5e8e0ce89faa">
+        <con:settings/>
+        <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:properties>
+            <con:property>
+              <con:name>search_query</con:name>
+              <con:value>project=TEST AND status = Backlog</con:value>
+            </con:property>
+            <con:property>
+              <con:name>invalid_issueKey</con:name>
+              <con:value>1234</con:value>
+            </con:property>
+            <con:property>
+              <con:name>invalid_commentId</con:name>
+              <con:value>12345</con:value>
+            </con:property>
+            <con:property>
+              <con:name>invalid_search_query</con:name>
+              <con:value>invalid_query</con:value>
+            </con:property>
+          </con:properties>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="95443fdd-aa04-4afd-ab37-c1fa5fe93bd6" name="pre_condition">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="13333fbf-18e1-4fbf-ba31-b5d5cbed417a" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC01 - Users should be able to create an issue" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="Step #1: Create an issue" id="2ca78923-774d-4266-8a46-9a512fbe3060">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/" methodName="create an issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #1: Create an issue" id="ee807d99-f84f-4db1-a7d1-395289a98c47" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "update": {},
+  "fields": {
+    "summary": "Main order flow broken 1",
+    "issuetype": {
+      "id": "10001"
+    },
+    "components": [
+      {
+        "id": "10000"
+      }
+    ],
+    "project": {
+      "id": "10000"
+    },
+    "description": {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "text": "Order entry fails when selecting supplier 1.",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/issue</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="fe639adf-49ae-4fdc-b0a1-81ebab6fbfbf" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Transfer issue key" id="8813b721-ff9e-4be8-89ea-94715a3734d9">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="false" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>issue key</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Step #1: Create an issue</con:sourceStep>
+            <con:sourcePath>$['key']</con:sourcePath>
+            <con:targetType>issueKey</con:targetType>
+            <con:targetStep>#TestSuite#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:targetTransferType>JSONPATH</con:targetTransferType>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties>
+      <con:property>
+        <con:name>issueKey</con:name>
+        <con:value>TEST-138</con:value>
+      </con:property>
+    </con:properties>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="71dfbfc4-371a-403b-8607-dfcaaf6e59f8" name="JIRA Transition">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="4df5769b-5954-4764-9ed3-b761e34c133b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DT01 - Successful response when get transition with valid data" searchProperties="true">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="886b4461-4243-4c29-a674-50d006733d14">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Get transitions" id="928783e2-79c5-4b3b-842a-74c25fd6c582">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/transitions" methodName="transition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Get transitions" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="fcc80c6d-1082-4b14-859f-e34b4b9b0178" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="b6a3c0e4-7f60-4576-9979-e920afe8ee82">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>928783e2-79c5-4b3b-842a-74c25fd6c582</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="1d4653c8-ba0b-4f62-8091-35db5578d123" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DT02 - Successful response when do transition with valid data" searchProperties="true">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="e937c60c-530f-41f2-adf4-5adc0e5fef0c">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Transition issue to Done" id="091cbae2-6058-46be-af54-f4ed7ce6e78f">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/transitions" methodName="do transition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Transition issue to Done" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "update": {
+    "comment": [
+      {
+        "add": {
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Issue ${#[pre_condition]#issueKey} has been fixed",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "transition": {
+    "id": "41"
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="88dddaaa-c64a-44ff-9454-83cbfd45985d" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #3: Verify that users transite an issue successful" id="5a237dc9-1cb1-4300-a2a5-10cd324815d7">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}" methodName="get an issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #3: Verify that users transite an issue successful" id="6f63b6f4-ac7c-4c12-a20a-2b4ad821e5e9" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-79</con:originalUri>
+            <con:assertion type="GroovyScriptAssertion" id="70e297af-6dca-49ec-a8a7-bd3195dbd48c" name="Script Assertion">
+              <con:configuration>
+                <scriptText>//imports
+import groovy.json.JsonSlurper
+
+//grab the response
+def response = messageExchange.response.responseContent
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(TrimResponse)
+def text = jsonSlurper.fields.resolution.name
+
+assert text == "Done"</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="62eb5e30-4e5d-480b-9dd8-9722c6223bd0">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>e937c60c-530f-41f2-adf4-5adc0e5fef0c</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="ba640a45-82b4-4c63-aabe-0b8bcd7da3da" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DT03 - Unsuccessful response when do transition with invalid issueKey" searchProperties="true">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="fcb33793-ca63-4ef2-a319-899add1ceeee">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Do transitions" id="299574f4-a0fc-4cd9-8745-65945afc17fe">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/transitions" methodName="do transition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Do transitions" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "update": {
+    "comment": [
+      {
+        "add": {
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Issue ${#[pre_condition]#issueKey} has been fixed",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "transition": {
+    "id": "41"
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="88dddaaa-c64a-44ff-9454-83cbfd45985d" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[set_variable#common variables#variables]#invalid_issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="f7c6da50-71e8-43c8-8e4c-8a4b12642b0e">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Issue does not exist or you do not have permission to see it."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="6faaa2d6-2f53-4298-abe0-250ecabb0820">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>fcb33793-ca63-4ef2-a319-899add1ceeee</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="b083b221-a19b-42aa-b47c-89d49c619c7b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DT04 - Unsuccessful response when do transition with blank body" searchProperties="true">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="ef484baf-bfeb-44b1-a2f3-6c51cb794af1">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Do transitions" id="6cc48d60-3b83-49e5-a48b-93f0d103b71b">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/transitions" methodName="do transition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Do transitions" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="88dddaaa-c64a-44ff-9454-83cbfd45985d" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="44279a8d-1ec4-40f7-8fc1-a66eee033605">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "No content to map to Object due to end of input"
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="84c6cdd5-c1a9-44c5-ad67-537512748107">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>ef484baf-bfeb-44b1-a2f3-6c51cb794af1</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="12a1dc6c-369d-44f0-a859-751745b83be3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DT05 - Unsuccessful response when do transition with invalid transitionId" searchProperties="true">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="2912c49e-258b-4916-8525-02fc76d7611e">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Do transitions" id="e50338d9-e3cc-4a9a-a958-006c976b454e">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/transitions" methodName="do transition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Do transitions" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "update": {
+    "comment": [
+      {
+        "add": {
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Issue ${#[pre_condition]#issueKey} has been fixed",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "transition": {
+    "id": "12"
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="88dddaaa-c64a-44ff-9454-83cbfd45985d" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="10264f4d-979b-4b10-94a6-43c6954b9adc">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// get response from step with groovy
+def response=context.expand('${${testStep}#response}')
+def request=context.expand('${${Step #1: Do transitions}#request}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def textResponse = jsonSlurper.parseText(response)
+def textRequest = jsonSlurper.parseText(request).transition.id
+
+// error messge
+def errorMessage = "Transition id '${textRequest}' is not valid for this issue."
+def errorComment = "Field 'comment' cannot be set. It is not on the appropriate screen, or unknown."
+
+assert errorMessage == textResponse.errorMessages[0]
+assert errorComment == textResponse.errors.comment</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="c924ceb1-790c-47b4-a83c-ac2729b76204">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>2912c49e-258b-4916-8525-02fc76d7611e</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties/>
+    <con:setupScript/>
+    <con:reportScript>//log.info("This run after JIRA Transition Testsuite")
+
+// get a test suite
+testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+
+// get a test case
+testCase = testSuite.getTestCaseByName("TC02 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</con:reportScript>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="a65146ee-e14c-4aad-8355-ffeea646c3c0" name="JIRA Add Comment">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="b0032277-1cf6-4822-8100-2ab115ce4d48" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AC01 - Successful response when adding comment with valid data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="e1f5502f-15c3-454b-b445-94b28478e449">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #1: Add a comment to the issue" id="9e52096e-0672-4ffa-abd9-efb08b517bec">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment" methodName="add comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #1: Add a comment to the issue" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Add comment to ticket ${#[pre_condition]#issueKey}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69b9efbd-9f41-4672-929a-fd4753c82e05" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Step #2: Transfer property created comment" id="fbc8d3ce-0059-4b80-a0f5-626ead1047e4">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>commentID</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Step #1: Add a comment to the issue</con:sourceStep>
+            <con:sourcePath>$['id']</con:sourcePath>
+            <con:targetType>commentId</con:targetType>
+            <con:targetStep>#TestSuite#</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:targetTransferType>JSONPATH</con:targetTransferType>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="true" entitize="false" transferChildNodes="false">
+            <con:name>content</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>Step #1: Add a comment to the issue</con:sourceStep>
+            <con:sourcePath>$['body']['content'][0]['content'][0]['text']</con:sourcePath>
+            <con:targetType>content</con:targetType>
+            <con:targetStep>#TestSuite#</con:targetStep>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #3: Verify that comment is created successful" id="87d1d47b-aa2e-4cb7-9132-267e5c7ce802">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="get comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #3: Verify that comment is created successful" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="77eb62ef-a790-491d-a7f1-db3dd8b093f3" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="e2c08526-65db-4a82-a32c-1d6ef3c41b52" name="Verify that a comment is created successfull">
+              <con:configuration>
+                <scriptText>//imports
+import groovy.json.JsonSlurper
+
+//grab the response
+def ResponseMessage = messageExchange.response.responseContent
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =ResponseMessage.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(TrimResponse)
+def text = jsonSlurper.body.content[0].content[0].text
+
+def responseContent = context.expand( '${#TestSuite#content}' )
+
+assert responseContent == text</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+              <con:entry key="commentId" value="${#TestSuite#commentId}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>commentId</con:entry>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="72cf9af5-c99f-44e7-b816-6333ab7a74cc">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>content</con:name>
+          <con:value>Add comment to ticket</con:value>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>87d1d47b-aa2e-4cb7-9132-267e5c7ce802</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>e1f5502f-15c3-454b-b445-94b28478e449</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="68d23522-5854-4f17-84d6-cc186e7dd583" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AC02 - Unsuccessful response when adding comment with empty data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="59bfc8c2-dc8d-41d7-8ba5-fc7d51366389">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add a comment to the issue with empty data" id="4128cbd5-d62e-4759-b013-ffe5d6ac7213">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment" methodName="add comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add a comment to the issue with empty data" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69b9efbd-9f41-4672-929a-fd4753c82e05" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="f15b5fd4-52ee-467b-9a62-0fcafa93f175">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Comment body can not be empty!"
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with empty data"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errors.comment
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="eb64363e-a289-456b-9549-8531afe8912c">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>59bfc8c2-dc8d-41d7-8ba5-fc7d51366389</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="d7bc1cd7-7d9b-410f-b857-fddabdd67345" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AC03 - Unsuccessful response when adding comment with invalid issue id" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="f2458451-d99f-40a4-a61d-6930af053dda">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add a comment to the issue with invalid issueKey" id="035d67d5-41de-473c-b7c2-ff6962a5a5d9">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment" methodName="add comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add a comment to the issue with invalid issueKey" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "123",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69b9efbd-9f41-4672-929a-fd4753c82e05" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[set_variable#common variables#variables]#invalid_issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="6304965c-f127-4eb7-81f3-9ebfd6b02f67">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Issue does not exist or you do not have permission to see it."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="f8fdfb33-003c-4f7e-9044-e879292e51c8">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>f2458451-d99f-40a4-a61d-6930af053dda</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="8c69c852-8c91-43d0-bcc2-4f73c1d5c26d" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AC04 - Unsuccessful response when adding comment with authentication credentials are incorrect" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="884c9ea1-47c9-4211-a22f-ef8dd010c079">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add a comment to the issue with credentials are incorrect" id="fff25378-e891-4557-8d0d-16c31908e059">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment" methodName="add comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add a comment to the issue with credentials are incorrect" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Add comment to ticket ${#[pre_condition]#issueKey}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69b9efbd-9f41-4672-929a-fd4753c82e05" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>users</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="7c29312c-f89f-4780-84eb-13fd5edace2e">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "You are currently not a member of the project role: Administrators."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with empty data"]
+def response=context.expand('${${testStep}#response}')
+//def response = context.expand( '${${Step #1: Add a comment to the issue with credentials are incorrect}#Response}' )
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errors.commentLevel
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="9c020063-abde-46c2-aac1-7534f870e7d9">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>884c9ea1-47c9-4211-a22f-ef8dd010c079</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="15218716-4715-4125-87b1-8f78a69ffbf2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AC05 - Unsuccessful response when adding comment with empty body" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="62ed9e93-e36d-4790-9e19-0d991eae1455">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add a comment to the issue with blank body" id="0aa66688-2a71-4d6a-9833-16547812a923">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment" methodName="add comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add a comment to the issue with blank body" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69b9efbd-9f41-4672-929a-fd4753c82e05" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="98893736-5182-4054-81b6-5af1f1f68418">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "No content to map to Object due to end of input"
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="f7290499-29dc-4343-ba02-6d1890ea7178">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>62ed9e93-e36d-4790-9e19-0d991eae1455</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties>
+      <con:property>
+        <con:name>commentId</con:name>
+        <con:value>10084</con:value>
+      </con:property>
+      <con:property>
+        <con:name>content</con:name>
+        <con:value>Add comment to ticket TEST-138</con:value>
+      </con:property>
+    </con:properties>
+    <con:setupScript>//log.info("This run before JIRA Add Comment Testsuite")
+//
+////get test suite
+//testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+//
+//// get test case
+//testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+//
+//// run test case
+//runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</con:setupScript>
+    <con:tearDownScript>////log.info("This run after JIRA Add Comment Testsuite")
+//
+//// get a test suite
+//testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+//
+//// get a test case
+//testCase = testSuite.getTestCaseByName("TC02 - Users should be delete a created issue");
+//
+//// run test case
+//runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</con:tearDownScript>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="cfbcd62f-2046-4af0-9a2e-dda88d38b88b" name="JIRA Vote">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="dfc65c62-5d1c-4240-a121-a51280b7e9c5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AV01 - Successful response when add vote valid data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="3d28196c-a5c3-4f84-9ff6-b5f39ae8ec29">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add vote" id="110620a8-3ca5-41dd-8273-bbe1f1a92a62">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/votes" methodName="add vote" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="1389302b-aca2-4939-b6e4-334b5d03c4c7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>users</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="91ddf2f2-0760-4bbe-90db-bccddcef313a">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>3d28196c-a5c3-4f84-9ff6-b5f39ae8ec29</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="781ff476-cf5b-4585-897a-c7dd0d65a581" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AV02 - Unsuccessful response when add vote with reported issue" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="dc2efa87-ee32-4da8-9a0a-0656ed279058">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add vote" id="33820f52-5f68-4a4c-994e-df412f906806">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/votes" methodName="add vote" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="1389302b-aca2-4939-b6e4-334b5d03c4c7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="fe2949d9-8d26-4230-8205-d446245dcea7">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "You cannot vote for an issue you have reported."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="c9f0d922-94bc-4362-b965-659afa6bddde">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>dc2efa87-ee32-4da8-9a0a-0656ed279058</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="bfe936b3-8fb1-4bcc-8346-75045e818bb9" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AV03 - Unsuccessful response when users vote for an issue which is resolved." searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="7d6e2901-360c-4322-8264-36ffc9e85a38">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Transaction issue to resolved issue" id="62ce1073-519d-4575-b77a-4be7173cc125">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Transition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("DT02 - Successful response when do transition with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transition issue to Done")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #3: Add vote" id="90119184-b1a3-4334-862a-f339a02d78fc">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/votes" methodName="add vote" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #3: Add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="1389302b-aca2-4939-b6e4-334b5d03c4c7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>users</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Verify that an error message is displayed" id="02dd77f0-0120-4697-8b54-4dc0252285e4">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "You cannot vote or change your vote on resolved issues."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="a80c2301-ab6e-4e47-b742-15637f0cc4aa">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>dc2efa87-ee32-4da8-9a0a-0656ed279058</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>d11819a5-15b6-4521-a48d-21465c1792e9</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="0f16556e-4fe5-4f4f-a768-4a7f052752c3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AV04 - Unsuccessful response when users vote for invalid issue" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="4f185530-aa52-480c-8e8a-2b32ed7d0263">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add vote" id="f5627cc1-83fd-4e46-83f4-4e4660db5f4b">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/votes" methodName="add vote" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="1389302b-aca2-4939-b6e4-334b5d03c4c7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>users</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[set_variable#common variables#variables]#invalid_issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Verify that an error message is displayed" id="fad7da5d-dccc-41f8-a3e9-fa9009c0b027">
+        <con:settings/>
+        <con:config>
+          <script>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Issue does not exist or you do not have permission to see it."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="223dd8ca-a15a-4403-98e4-10b5d218251b">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>dc2efa87-ee32-4da8-9a0a-0656ed279058</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="03752ad9-1533-4d16-9a8b-583294a3f87e" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="AV05 - Unsuccessful response when users vote for empty issue" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="b852bab0-2e62-48d4-8b8d-b5556c0738c9">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: Add vote" id="712358c4-02f0-415b-b1e8-4933c527f6d6">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/votes" methodName="add vote" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: Add vote" id="f5294919-d244-44b8-bce3-3986d6e447f2" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/transitions</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="1389302b-aca2-4939-b6e4-334b5d03c4c7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>405</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>users</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #4: Delete a created issue" id="4634c835-7479-4653-990b-372ce3940dcd">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>dc2efa87-ee32-4da8-9a0a-0656ed279058</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="e2c8836b-39af-4e15-bd09-2e19d4182f0c" name="JIRA Search">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="ff08e999-4a20-44ea-8fa7-10d6fb98e658" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SR01 - Successful response when users searching GET method with valid data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="882271c8-54a4-4438-af0c-991bccaa39f8">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: search issue by jql using method GET" id="4e76877e-870b-400c-894f-4698511c7bab">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/search" resourcePath="" methodName="get search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: search issue by jql using method GET" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="fa095266-078c-4641-b016-677eeaa1c112" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="0e355b56-7e5b-472f-ac4a-347af379df16" name="Verify that users able to search successful">
+              <con:configuration>
+                <scriptText>//imports
+import groovy.json.JsonSlurper
+
+def issueKey = context.expand( '${#[pre_condition]#issueKey}' )
+def name =  "Backlog"
+def project = "TEST"
+def total_issue = 1
+
+//grab the response
+def response = messageExchange.response.responseContent
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(TrimResponse)
+
+assert issueKey == jsonSlurper.issues[0].key
+assert total_issue == jsonSlurper.total
+assert project == jsonSlurper.issues[0].fields.project.key
+assert name == jsonSlurper.issues[0].fields.status.name</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="jql" value="${#[set_variable#common variables#variables]#search_query}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>jql</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="6e5ff1f3-199f-48af-b272-27843dae1f6e">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:setupScript/>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>882271c8-54a4-4438-af0c-991bccaa39f8</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="3c6c37a2-7f7b-4ba0-81e6-c09ec61c57e3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SR02 - Successfull response when users search issue by jql using method POST" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="3d2b40ac-6f9e-44ba-aab7-5ab495f14f11">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: search issue by jql using method POST" id="471d04f8-f40b-4c29-b356-f2c5be3358ea">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/search" resourcePath="" methodName="post search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: search issue by jql using method POST" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+            <con:request>{\r
+   "jql" : "${#[set_variable#common variables#variables]#search_query}",\r
+   "maxResults" : 15,\r
+   "fieldsByKeys" : false,\r
+   "fields" : [\r
+      "summary",\r
+      "status"\r
+   ]\r
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2d2cd798-ab22-4ea3-89bf-903598e4876a" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" name="Verify that users able to search successful" id="b102a41d-6fae-4814-b30f-362906e353fa">
+              <con:configuration>
+                <scriptText>//imports
+import groovy.json.JsonSlurper
+
+def issueKey = context.expand( '${#[pre_condition]#issueKey}' )
+def name =  "Backlog"
+def total_issue = 1
+
+//grab the response
+def response = messageExchange.response.responseContent
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(TrimResponse)
+
+assert issueKey == jsonSlurper.issues[0].key
+assert total_issue == jsonSlurper.total
+assert name == jsonSlurper.issues[0].fields.status.name</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="ac78a12d-5c37-4b21-9aae-ba9707a3f032">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>3d2b40ac-6f9e-44ba-aab7-5ab495f14f11</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="365f9e7b-6cd7-46fc-83d2-593ce8979de2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SR03 - Unuccessfull response when users search issue by jql using method POST with blank body" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="0a08d0e0-7664-4c97-923b-5fc12f7e847b">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: search issue by jql using method POST" id="ce6cf6a7-7472-4bed-a902-b5b461b8a8ca">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/search" resourcePath="" methodName="post search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: search issue by jql using method POST" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2d2cd798-ab22-4ea3-89bf-903598e4876a" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" name="Verify that an error message is displayed" id="b102a41d-6fae-4814-b30f-362906e353fa">
+              <con:configuration>
+                <scriptText>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "No content to map to Object due to end of input"
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="b58225a1-4daa-49ed-81a8-cb508c0609ca">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>3d2b40ac-6f9e-44ba-aab7-5ab495f14f11</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="0da55692-f00e-40ff-bb77-e0a849e9edc8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SR04 - Unuccessfull response when users search issue by jql using method POST with invalid query" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="5db996d4-630c-4bf8-91e9-47ee50b9d63c">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: search issue by jql using method POST" id="4aaf8fea-41b6-4a9d-a25b-f3a6739e30f1">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/search" resourcePath="" methodName="post search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: search issue by jql using method POST" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+            <con:request>{
+   "jql" : "${#[set_variable#common variables#variables]#invalid_search_query}",
+   "maxResults" : 15,
+   "fieldsByKeys" : false,
+   "fields" : [
+      "summary",
+      "status"
+   ]
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2d2cd798-ab22-4ea3-89bf-903598e4876a" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" name="Verify that an error message is displayed" id="b102a41d-6fae-4814-b30f-362906e353fa">
+              <con:configuration>
+                <scriptText>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Error in the JQL Query: Expecting operator before the end of the query. The valid operators are '=', '!=', '&lt;', '>', '&lt;=', '>=', '~', '!~', 'IN', 'NOT IN', 'IS' and 'IS NOT'."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="325437e5-b895-4e57-89d7-7f88cf13ebbc">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>3d2b40ac-6f9e-44ba-aab7-5ab495f14f11</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="e9c669a1-be86-455e-bb9f-2b9c65f40f93" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SR05 - Unsuccessfull response when users search issue by jql using method GET with invalid query" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="1be87f3f-4e96-449d-bc86-35787cff175c">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #2: search issue by jql using method GET" id="1b2f2321-a67d-4473-856c-d9860c241b38">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/search" resourcePath="" methodName="get search" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #2: search issue by jql using method GET" id="2766bada-d9c2-4760-ada2-0d0f156753c9" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/search</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/search</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="fa095266-078c-4641-b016-677eeaa1c112" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" name="Verify that an error message is displayed" id="3cd8a984-2245-46fa-a90c-1d9cf9f24770">
+              <con:configuration>
+                <scriptText>import groovy.json.JsonSlurper
+
+// error messge
+def errorMessage = "Error in the JQL Query: Expecting operator before the end of the query. The valid operators are '=', '!=', '&lt;', '>', '&lt;=', '>=', '~', '!~', 'IN', 'NOT IN', 'IS' and 'IS NOT'."
+
+// get response from step with groovy
+//def testStep = testRunner.testCase.testSteps["Step #1: Add a comment to the issue with invalid issueKey"]
+def response=context.expand('${${testStep}#response}')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper().parseText(response)
+def responseError = jsonSlurper.errorMessages[0]
+
+assert errorMessage == responseError</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="jql" value="${#[set_variable#common variables#variables]#invalid_search_query}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>jql</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Delete a created issue" id="9cb20bdc-255a-4e56-8960-7249430d9073">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:setupScript/>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>882271c8-54a4-4438-af0c-991bccaa39f8</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties/>
+    <con:setupScript>//log.info("This run before JIRA Add Comment Testsuite")
+//
+////get test suite
+//testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+//
+//// get test case
+//testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+//
+//// run test case
+//// Create 5 issue
+//for (int i; i&lt;5; i ++){
+//	runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+//}</con:setupScript>
+    <con:tearDownScript>//log.info("This run after JIRA Add Comment Testsuite")
+
+// get a test suite
+testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+
+// get a test case
+testCase = testSuite.getTestCaseByName("TC02 - Users should be delete a created issue");
+
+// run test case
+for (int i; i&lt;5; i ++){
+	runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);
+}</con:tearDownScript>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="491c309e-2e06-498f-b2f7-eeba77bcb3ec" name="JIRA Update Comment">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="61cebe54-e0cd-414c-90a5-d0ab1f074376" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="UC01 - Successful response when updating comment with valid data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="d1320067-bf60-4051-a0d4-d8f3b48f9980">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Add a comment to created issue" id="06defe7c-321d-4fbe-9888-edad062b277b">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #1: Add a comment to the issue")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Tranfer property commentID" id="4d75a9af-8e95-4fd9-87b1-344344ea0ab6">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transfer property created comment")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #4: Update a created comment" id="8e4ec521-9f1f-49bc-b5b7-8f43a356efbf">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="update comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #4: Update a created comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Update comment to ticket ${#[JIRA Add Comment]#commentId}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3f937477-5da2-4a2c-9111-6a622c2169c1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="dbae3ee1-c2d1-401a-9832-dd785ee935f0" name="Verify that users able to update comment">
+              <con:configuration>
+                <scriptText>//imports
+
+import groovy.json.JsonSlurper
+
+//grab the response and request
+def response = messageExchange.response.responseContent
+def request=context.expand('${${Step #4: Update a created comment}#request}')
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def textResponse = jsonSlurper.parseText(TrimResponse).body.content[0].content[0].text
+def textRequest = jsonSlurper.parseText(request).body.content[0].content[0].text
+
+assert textResponse == textRequest</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+              <con:entry key="commentId" value="${#[JIRA Add Comment]#commentId}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+              <con:entry>commentId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="16cb1ea2-125a-45ab-bbc0-5a8b70a24443">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:setupScript/>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>d1320067-bf60-4051-a0d4-d8f3b48f9980</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>06defe7c-321d-4fbe-9888-edad062b277b</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>4d75a9af-8e95-4fd9-87b1-344344ea0ab6</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:testCase id="000330ae-02f6-4701-8896-b21f843a88af" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="UC02 - Unsuccessful response when updating comment with empty data" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="74dab8cc-4521-4c73-866d-2a7df562fcaf">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Add a comment to created issue" id="b92f5caa-f4a4-4768-9f6f-54e145f88e67">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #1: Add a comment to the issue")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Tranfer property commentID" id="a990d16e-2de4-4f45-aff6-13dc83d95f9e">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transfer property created comment")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #4: Update a created comment" id="52156f82-4f85-4e40-9ce5-4e599bb5c879">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="update comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #4: Update a created comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3f937477-5da2-4a2c-9111-6a622c2169c1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="dbae3ee1-c2d1-401a-9832-dd785ee935f0" name="Verify an error message is displayed">
+              <con:configuration>
+                <scriptText>//imports
+
+import groovy.json.JsonSlurper
+
+//grab the response and request
+def response = messageExchange.response.responseContent
+def errorMessage = "Comment body can not be empty!";
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def textResponse = jsonSlurper.parseText(TrimResponse).errors.comment
+log.info(textResponse)
+
+assert textResponse == errorMessage</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+              <con:entry key="commentId" value="${#[JIRA Add Comment]#commentId}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+              <con:entry>commentId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="34a455da-be39-4bb2-bbdf-949d700880e7">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="42cdb74d-ac43-4b1c-9e02-222bbe68408b" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="UC03 - Unsuccessful response when updating comment with blank body" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="10975d45-f5f7-4753-8dc1-e5dbca62b3b0">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Add a comment to created issue" id="5287626c-1aa1-426f-bd4d-fd0880a81e0f">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #1: Add a comment to the issue")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Tranfer property commentID" id="38d1a4ed-efd2-48b3-b146-827e9478d3ea">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transfer property created comment")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #4: Update a created comment" id="a8476902-c5e1-452f-a18f-129742554e8e">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="update comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #4: Update a created comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3f937477-5da2-4a2c-9111-6a622c2169c1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>400</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="dbae3ee1-c2d1-401a-9832-dd785ee935f0" name="Verify an error message is displayed">
+              <con:configuration>
+                <scriptText>//imports
+
+import groovy.json.JsonSlurper
+
+//grab the response and request
+def response = messageExchange.response.responseContent
+def errorMessage = "No content to map to Object due to end of input";
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def textResponse = jsonSlurper.parseText(TrimResponse).errorMessages[0]
+log.info(textResponse)
+
+assert textResponse == errorMessage</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+              <con:entry key="commentId" value="${#[JIRA Add Comment]#commentId}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+              <con:entry>commentId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="13d519c7-181d-41f1-87a9-686520a48a3d">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="a281794b-507e-451f-949c-b17901a50969" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="UC04 - Unsuccessful response when updating comment with invalid comment id" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="e2daf232-ea38-4a3c-845e-2eaf9b56952a">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Add a comment to created issue" id="78950d4c-d6cd-41d3-bcd1-eb3013431264">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #1: Add a comment to the issue")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Tranfer property commentID" id="b5342bd1-465c-45bd-b96a-535e59b58c7d">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transfer property created comment")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #4: Update a created comment" id="6a88b935-fb00-4a87-99c4-248d2809d248">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="update comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #4: Update a created comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Update comment to ticket ${#[JIRA Add Comment]#commentId}",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3f937477-5da2-4a2c-9111-6a622c2169c1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>404</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="GroovyScriptAssertion" id="dbae3ee1-c2d1-401a-9832-dd785ee935f0" name="Verify an error message is displayed">
+              <con:configuration>
+                <scriptText>//imports
+
+import groovy.json.JsonSlurper
+
+//grab the response and request
+def response = messageExchange.response.responseContent
+def commentId = context.expand('${${Step #4: Update a created comment}#commentId}')
+def errorMessage = "Can not find a comment for the id: ${commentId}.";
+
+// replace "(starting&amp;ending), [](starting&amp;ending) and \ with space from response
+def TrimResponse =response.replaceAll('^\"|\"$','').replaceAll('^\\[|\\]$','')replaceAll('\\\\','')
+
+//define a JsonSlurper
+def jsonSlurper = new JsonSlurper()
+def textResponse = jsonSlurper.parseText(TrimResponse).errorMessages[0]
+
+assert textResponse == errorMessage</scriptText>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+              <con:entry key="commentId" value="${#[set_variable#common variables#variables]#invalid_commentId}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+              <con:entry>commentId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="9b7d431f-5f56-4708-bbc7-2213399af564">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="26ef70ca-e073-4249-b7a9-3961aab690ac" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="UC05 - Unsuccessful response when updating comment with blank comment id 2" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="groovy" name="Step #1: Create an issue" id="124730c0-ad2f-4067-a219-5f86af5733e1">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("pre_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be able to create an issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #2: Add a comment to created issue" id="4ade8704-59da-4c1c-9c75-29386447975a">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #1: Add a comment to the issue")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #3: Tranfer property commentID" id="7a1491af-2cc8-4d46-b918-e44e96ac00c9">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("JIRA Add Comment")
+
+// get test case
+testCase = testSuite.getTestCaseByName("AC01 - Successful response when adding comment with valid data")
+
+// get test step 
+testStep = testCase.getTestStepByName("Step #2: Transfer property created comment")
+
+// run test case
+testStep.run(testRunner, context)</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Step #4: Update a created comment" id="4c2adfe6-5865-4787-b1e5-59b41a20f124">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}/comment/{commentId}" methodName="update comment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step #4: Update a created comment" id="561a02cd-5678-472c-b77a-47f24d13512e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request>{
+  "visibility": {
+    "type": "role",
+    "value": "Administrators"
+  },
+  "body": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+}</con:request>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-12/comment/10029</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="3f937477-5da2-4a2c-9111-6a622c2169c1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>405</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+              <con:entry>commentId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Step #5: Delete a created issue" id="8e5e120b-7b0b-43d6-89b7-bbd2c59c31f1">
+        <con:settings/>
+        <con:config>
+          <script>// get testsuite
+testSuite = testRunner.testCase.testSuite.project.getTestSuiteByName("post_condition")
+
+// get test case
+testCase = testSuite.getTestCaseByName("TC01 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</script>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:setupScript/>
+    <con:reportScript>//log.info("This run after JIRA Add Comment Testsuite")
+
+// get a test suite
+testSuite = testSuite.project.getTestSuiteByName("pre_condition");
+
+// get a test case
+testCase = testSuite.getTestCaseByName("TC02 - Users should be delete a created issue");
+
+// run test case
+runner = testCase.run(new com.eviware.soapui.support.types.StringToObjectMap(), false);</con:reportScript>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:testSuite id="b90be8f5-9626-4a89-8b82-1385b51f03c1" name="post_condition">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="869f8566-e8f4-4d69-a609-c8dd3c29e30c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC01 - Users should be delete a created issue" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="Step#1: Delete a create issue" id="bd268ff8-7a35-4083-9979-52e9156d5f33">
+        <con:settings/>
+        <con:config service="https://trangle.atlassian.net/rest/api/3/issue" resourcePath="/{issueKey}" methodName="delete an issue" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Step#1: Delete a create issue" id="b49128bb-c0b8-4cfa-bd98-42c41eef6858" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://trangle.atlassian.net/rest/api/3/issue</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://trangle.atlassian.net/rest/api/3/issue/TEST-19</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="90ecc480-c5d6-4354-9eaa-5bde27215233" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>administrator</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="issueKey" value="${#[pre_condition]#issueKey}"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>issueKey</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:tearDownScript/>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties>
+      <con:property>
+        <con:name>issueKey</con:name>
+        <con:value/>
+      </con:property>
+    </con:properties>
+    <con:tearDownScript/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:sensitiveInformation/>
+  <con:authRepository>
+    <con:basicAuthEntry>
+      <con:name>administrator</con:name>
+      <con:type>Basic</con:type>
+      <con:username>trangle972501@gmail.com</con:username>
+      <con:password>jEHV20TRJ8UyrCP6eNYL2497</con:password>
+      <con:domain>https://trangle.atlassian.net/</con:domain>
+      <con:preemptive>true</con:preemptive>
+    </con:basicAuthEntry>
+    <con:basicAuthEntry>
+      <con:name>users</con:name>
+      <con:type>Basic</con:type>
+      <con:username>trang97pnvn@gmail.com</con:username>
+      <con:password>HIp9LQPLGzRvK9UVzATtCDCF</con:password>
+      <con:domain>https://trangle.atlassian.net/</con:domain>
+      <con:preemptive>true</con:preemptive>
+    </con:basicAuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
